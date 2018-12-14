@@ -1,7 +1,5 @@
 package com.company;
 
-import java.util.ArrayList;
-
 class LinkedList2
 {
     public Node head;
