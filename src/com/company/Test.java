@@ -272,7 +272,6 @@ public class Test {
         int success = 0, fail = 0;
 
         list.insertAfter(list.find(123), new Node (15));
-        list.log();
         if(list.head!= null && list.tail != null){
             success++;
             System.out.println("insert into empty list");
@@ -285,7 +284,6 @@ public class Test {
         }
 
         list.insertAfter(list.head, new Node (10));
-        list.log();
         if(list.head.next.value == 10){
             success++;
             System.out.println("insert after head");
@@ -295,7 +293,6 @@ public class Test {
         }
 
         list.insertAfter(list.find(123), new Node (20));
-        list.log();
         if(list.tail.value == 20){
             success++;
             System.out.println("insert before head(null)");
@@ -305,7 +302,6 @@ public class Test {
         }
 
         list.insertAfter(list.tail, new Node(25));
-        list.log();
         if(list.tail.value == 25){
             success++;
             System.out.println("insert after tail");
@@ -316,7 +312,6 @@ public class Test {
 
         int tail1 = list.tail.value;
         list.insertAfter(list.tail.prev, new Node (30));
-        list.log();
         if(tail1 == list.tail.value && list.tail.prev.value == 30){
             success++;
             System.out.println("insert before tail");
@@ -328,7 +323,6 @@ public class Test {
         Node findMid = list.find(2);
         Node midNext = findMid.next;
         list.insertAfter(findMid, new Node(40));
-        list.log();
         if(midNext!= findMid.next && findMid.next.value == 40){
             success++;
             System.out.println("insert in the middle of list");
@@ -339,7 +333,6 @@ public class Test {
 
         Node t = list.tail;
         list.insertAfter(list.tail.next, new Node(45));
-        list.log();
         if(list.tail.prev == t && list.tail.value == 45){
             success++;
             System.out.println("insert after tail.next of list");
@@ -356,14 +349,49 @@ public class Test {
         for(int i = 0; i< 5; i++){
             list.addInTail(new Node(i));
             list.addInTail(new Node(6-i));
+            list.addInTail(new Node(i));
         }
+        int count = 0, fail = 0;
         list.log();
-        int count1 = 0;
-        ArrayList<Node> arrayList = list.findAll(1);
-        for(int i = 0; i<arrayList.size(); i++){
-            System.out.println(arrayList.get(i).value);
-        }
 
+        ArrayList<Node> arList = new ArrayList<>();
+        arList = list.findAll(0);
+        if(arList.size() == 2){
+            count++;
+        }else fail++;
+
+        arList = list.findAll(1);
+        if(arList.size() == 2){
+            count++;
+        }else fail++;
+
+        arList = list.findAll(2);
+        if(arList.size() == 3){
+            count++;
+        }else fail++;
+
+        arList = list.findAll(3);
+        if(arList.size() == 3){
+            count++;
+        }else fail++;
+
+        arList = list.findAll(4);
+        if(arList.size() == 3){
+            count++;
+        }else fail++;
+
+        arList = list.findAll(5);
+        if(arList.size() == 1){
+            count++;
+        }else fail++;
+
+        arList = list.findAll(6);
+        if(arList.size() == 1){
+            count++;
+        }else fail++;
+
+        System.out.println(count + " success");
+        System.out.println(fail + " fails");
 
     }
 }
@@ -375,8 +403,6 @@ class Main{
         Test.testRemoveAll();
         Test.testInsert();
         Test.testFindAll();
-
-
     }
 }
 

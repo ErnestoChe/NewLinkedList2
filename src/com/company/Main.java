@@ -26,14 +26,7 @@ class LinkedList2
         this.tail = _item;
     }
 
-    public void addInHead(Node _item){
-        _item.next = head;
-        _item.prev = null;
-        if(head!=null){
-            head.prev = _item;
-        }
-        head = _item;
-    }//tested
+
     public Node find(int _value)
     {
         Node tmp = head;
@@ -130,6 +123,7 @@ class LinkedList2
             _nodeToInsert.prev = _nodeAfter;
         }
     }
+
     public void log(){
         Node tmp = head;
         if(head == null){
