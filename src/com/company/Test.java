@@ -86,6 +86,11 @@ public class Test {
             System.out.println("didnt find 3");
         }
         //found in the middle of list
+        list.clear();
+        Node n = list.find(2);
+        if(n == null){
+            System.out.println("null");
+        }else System.out.println(" not null");
 
         System.out.println(success+" success");
         System.out.println(fail+" fail");
@@ -142,7 +147,6 @@ public class Test {
             fail++;
             System.out.println("coudlnt delete last element");
         }
-
 
         check = list.remove(10);
         System.out.println(check);
@@ -253,7 +257,7 @@ public class Test {
         for(int i = 0; i < 3;i++){
             list.addInTail(new Node(1));
         }
-        //list.log();
+        list.log();
         list.removeAll(1);
         if(list.head == null && list.tail == null){
             success++;
@@ -262,7 +266,12 @@ public class Test {
             fail++;
             //System.out.println("coudlnt delete all list");
         }
-        //list.log();
+        list.log();
+        list.removeAll(2);
+        if(list.head == null){
+            System.out.println("null");
+        }else System.out.println(list.head.value);
+
 
         System.out.println(success+" success");
         System.out.println(fail+" fail");
@@ -397,8 +406,8 @@ public class Test {
 }
 class Main{
     public static void main(String[] args){
-        Test.testCount();
-        Test.testFind();
+        //Test.testCount();
+        //Test.testFind();
         Test.testRemove();
         Test.testRemoveAll();
         Test.testInsert();

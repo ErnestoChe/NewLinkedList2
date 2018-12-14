@@ -80,6 +80,8 @@ class LinkedList2
 
     public void removeAll(int _value)
     {
+        if(head == null){
+        }else
         if(head.next == tail){
             remove(_value);
         }else{
